@@ -1,0 +1,18 @@
+<body>
+{% if form.errors %}
+<p>There is some problem with the form </p>
+{% endif %}
+
+{% if next %}
+<p>YOu cannot acces this page</p>
+{% endif %}
+
+<form action="{url 'login'}" method="post">
+  {% csrf_token %}
+  <p>Uername: {{ form.username }}</p>
+  <p>Password: {{ form.password }}</p>
+
+  <input type='submit' value="login">
+  <input type="hidden" name="next" value="{{ next }}">
+  </form>
+</body>
